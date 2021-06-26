@@ -1,24 +1,18 @@
-import { Controller, Get, Logger, ParseIntPipe, Query } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { HeroService } from './hero.service';
 import { QueryHeroDto } from './dto/query-hero.dto';
 import { Observable } from 'rxjs';
 import { IHeroQueryResult } from './interfaces';
+import { ParseHeroQueryBodyPipe } from './pipes/parse-hero-query-body.pipe';
 
 @Controller('hero')
 export class HeroController {
-  private readonly logger = new Logger(HeroController.name);
-
   constructor(private readonly heroService: HeroService) {}
 
   @Get()
   findHeroes(
-    @Query('limit', new ParseIntPipe()) limit: number,
-    @Query('offset', new ParseIntPipe()) offset: number,
+    @Query(ParseHeroQueryBodyPipe) parameter: QueryHeroDto,
   ): Observable<IHeroQueryResult> {
-    const parameter: QueryHeroDto = {
-      limit: limit,
-      offset: offset,
-    };
     return this.heroService.findHeroes(parameter);
   }
 }
