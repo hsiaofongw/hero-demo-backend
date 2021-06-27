@@ -3,7 +3,7 @@ import { HeroService } from './hero.service';
 import { QueryHeroDto } from './dto/query-hero.dto';
 import { Observable } from 'rxjs';
 import { ParseHeroQueryBodyPipe } from './pipes/parse-hero-query-body.pipe';
-import { HeroQueryResultDto } from './dto/hero-query-result.dto';
+import { HeroQueryResultSchema } from './schemas/hero-query-result.schema';
 import { ApiCreatedResponse } from '@nestjs/swagger';
 
 @Controller('hero')
@@ -13,11 +13,11 @@ export class HeroController {
   @Get()
   @ApiCreatedResponse({
     description: '成功查询到英雄。',
-    type: HeroQueryResultDto,
+    type: HeroQueryResultSchema,
   })
   findHeroes(
     @Query(ParseHeroQueryBodyPipe) parameter: QueryHeroDto,
-  ): Observable<HeroQueryResultDto> {
+  ): Observable<HeroQueryResultSchema> {
     return this.heroService.findHeroes(parameter);
   }
 }

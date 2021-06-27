@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Hero } from '../entities/hero.entity';
 import { IHeroQueryResult } from '../interfaces';
 
-export class HeroQueryResultDto implements IHeroQueryResult {
+export class HeroQueryResultSchema implements IHeroQueryResult {
   @ApiProperty()
   totalCounts: number;
 
