@@ -10,6 +10,7 @@ async function bootstrap() {
   app.setGlobalPrefix('api/v1');
 
   const docConfig = new DocumentBuilder()
+    .addBearerAuth()
     .setTitle('Hero API')
     .setDescription('The hero API description')
     .setVersion('1.0')

@@ -7,6 +7,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { RegisterModule } from './register/register.module';
 import { LoginModule } from './login/login.module';
+import { ProfileModule } from './profile/profile.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { LoginModule } from './login/login.module';
     AuthModule,
     RegisterModule,
     LoginModule,
+    ProfileModule,
   ],
   controllers: [AppController],
   providers: [AppService],
