@@ -5,6 +5,6 @@ import { LoginController } from './controllers/login/login.controller';
 
 @Module({
   controllers: [LoginController],
-  imports: [UserModule, AuthModule],
+  imports: [AuthModule, UserModule],
 })
 export class LoginModule {}
