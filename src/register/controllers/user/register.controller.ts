@@ -7,15 +7,15 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { Observable, of } from 'rxjs';
-import { CreateUserDto } from 'src/user/dto/create-user-dto';
+import { CreateUserDto } from 'src/register/create-user-dto';
 import { IUser } from 'src/user/interfaces';
 import { UserService } from 'src/user/services/user/user.service';
 
-@Controller('user')
-export class UserController {
+@Controller('')
+export class RegisterController {
   constructor(private userService: UserService) {}
 
-  @Post()
+  @Post('register')
   @HttpCode(HttpStatus.CREATED)
   registerUser(
     @Body() userDto: CreateUserDto,
@@ -24,7 +24,7 @@ export class UserController {
   }
 
   /** DEV ONLY */
-  @Get()
+  @Get('users')
   getAllUser(): Observable<{ users: IUser[] }> {
     return of({ users: this.userService.dumpAllUsers() });
   }

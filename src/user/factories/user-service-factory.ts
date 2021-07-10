@@ -1,5 +1,5 @@
 import { ConfigService } from '@nestjs/config';
-import { CreateUserDto } from '../dto/create-user-dto';
+import { CreateUserDto } from '../../register/create-user-dto';
 import { v4 as uuid } from 'uuid';
 import { UserService } from '../services/user/user.service';
 
