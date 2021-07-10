@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-jwt';
 import { JwtFromRequestFunction } from 'passport-jwt';
@@ -19,16 +19,21 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: { username: string }) {
-    return new Promise((resolve: (userObject: { user: IUser }) => void) => {
-      this.userService
-        .findUserByUsername(payload.username)
-        .subscribe((userQuery: { user?: IUser }) => {
-          if (userQuery.user) {
-            resolve(userQuery as { user: IUser });
-          } else {
-            throw new HttpException('No Such User', HttpStatus.BAD_REQUEST);
-          }
-        });
-    });
+    return new Promise(
+      (
+        resolve: (userObject: { user: IUser }) => void,
+        reject: (reason: { error: { message?: string } }) => void,
+      ) => {
+        this.userService
+          .findUserByUsername(payload.username)
+          .subscribe((userQuery: { user?: IUser }) => {
+            if (userQuery.user) {
+              resolve(userQuery as { user: IUser });
+            } else {
+              reject({ error: { message: 'No Such User' } });
+            }
+          });
+      },
+    );
   }
 }
