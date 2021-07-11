@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { RegisterModule } from './register/register.module';
 import { LoginModule } from './login/login.module';
 import { ProfileModule } from './profile/profile.module';
+import { FriendModule } from './friend/friend.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ProfileModule } from './profile/profile.module';
     RegisterModule,
     LoginModule,
     ProfileModule,
+    FriendModule,
   ],
   controllers: [AppController],
   providers: [AppService],
