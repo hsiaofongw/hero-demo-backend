@@ -29,12 +29,6 @@ export class LoginController {
     @Body() loginDto: LoginDto,
   ): Observable<{ token?: string; error?: { message: string } }> {
     return this.userService.findUserByUsername(loginDto.username).pipe(
-      tap((x: { user?: IUser }) => {
-        if (!x.user) {
-          throw new HttpException('No Such User', HttpStatus.BAD_REQUEST);
-        }
-      }),
-
       map((userObj: { user: IUser }) => {
         return this.authService.login(userObj.user);
       }),

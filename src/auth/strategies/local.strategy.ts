@@ -23,7 +23,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
           .validateUser({ username, password })
           .subscribe((result: { user?: IUser }) => {
             if (!result.user) {
-              reject({ error: { message: 'No Such User ' } });
+              reject(null);
             }
             resolve(result.user);
           });

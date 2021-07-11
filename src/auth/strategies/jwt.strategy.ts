@@ -30,7 +30,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
             if (userQuery.user) {
               resolve(userQuery as { user: IUser });
             } else {
-              reject({ error: { message: 'No Such User' } });
+              reject(null);
             }
           });
       },
