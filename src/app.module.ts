@@ -9,6 +9,8 @@ import { RegisterModule } from './register/register.module';
 import { LoginModule } from './login/login.module';
 import { ProfileModule } from './profile/profile.module';
 import { FriendModule } from './friend/friend.module';
+import { ArticleModule } from './article/article.module';
+import { DateTimeHelperModule } from './shared/date-time-helper/date-time-helper.module';
 
 @Module({
   imports: [
@@ -20,6 +22,8 @@ import { FriendModule } from './friend/friend.module';
     LoginModule,
     ProfileModule,
     FriendModule,
+    ArticleModule,
+    DateTimeHelperModule,
   ],
   controllers: [AppController],
   providers: [AppService],
