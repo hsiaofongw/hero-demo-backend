@@ -1,8 +1,8 @@
 import { Controller, Get, Request, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth } from '@nestjs/swagger';
 import { Observable, of } from 'rxjs';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
-import { IUser } from 'src/user/interfaces';
+import { JwtAuthGuard } from 'src/shared/auth/guards/jwt-auth.guard';
+import { IUser } from 'src/shared/user/interfaces';
 
 @Controller('profile')
 export class ProfileController {

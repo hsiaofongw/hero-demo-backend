@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Observable, of } from 'rxjs';
-import { IUser } from 'src/user/interfaces';
-import { UserService } from 'src/user/services/user/user.service';
+import { IUser } from 'src/shared/user/interfaces';
+import { UserService } from 'src/shared/user/services/user/user.service';
 
 type UserCredential = {
   username: string;

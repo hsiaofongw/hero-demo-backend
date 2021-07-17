@@ -1,10 +1,9 @@
-import { Logger, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { HeroModule } from './hero/hero.module';
-import { UserModule } from './user/user.module';
+import { UserModule } from './shared/user/user.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './shared/auth/auth.module';
 import { RegisterModule } from './register/register.module';
 import { LoginModule } from './login/login.module';
 import { ProfileModule } from './profile/profile.module';
@@ -16,7 +15,6 @@ import { SayModule } from './say/say.module';
 
 @Module({
   imports: [
-    HeroModule,
     UserModule,
     ConfigModule.forRoot(),
     AuthModule,

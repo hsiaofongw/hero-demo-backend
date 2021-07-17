@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Observable, of } from 'rxjs';
 import { CreateUserDto } from 'src/register/create-user-dto';
-import { IUser } from 'src/user/interfaces';
+import { IUser } from 'src/shared/user/interfaces';
 import { v4 as uuid } from 'uuid';
 
 @Injectable()

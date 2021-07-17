@@ -10,10 +10,10 @@ import {
 import { Observable } from 'rxjs';
 import { concatAll, map, tap } from 'rxjs/operators';
 import { LoginDto } from 'src/login/login-dto';
-import { UserService } from 'src/user/services/user/user.service';
-import { LocalAuthGuard } from 'src/auth/guards/local-auth.guard';
-import { AuthService } from 'src/auth/services/auth/auth.service';
-import { IUser } from 'src/user/interfaces';
+import { UserService } from 'src/shared/user/services/user/user.service';
+import { LocalAuthGuard } from 'src/shared/auth/guards/local-auth.guard';
+import { AuthService } from 'src/shared/auth/services/auth/auth.service';
+import { IUser } from 'src/shared/user/interfaces';
 
 @Controller('login')
 export class LoginController {
