@@ -1,73 +1,53 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# 探索子博客下一代统一数据与服务后端平台
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+这是一个技术博客网站的后端。
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 代码目录结构
 
-## Description
+在 `src` 目录下，存放着程序引导代码，根模块定义，各个功能模块的定义（按目录存放），以及公共模块定义（位于 `shared` 目录下）：
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
+```
+src
+├── app.module.ts
+├── article
+├── friend
+├── login
+├── main.ts
+├── profile
+├── register
+├── say
+└── shared
 ```
 
-## Running the app
+`main.ts` 为应用程序启动入口。`app.module.ts` 为根模块，负责加载各个功能模块，它们是：
 
-```bash
-# development
-$ npm run start
+- `article` 文章列表模块，负责文章的查询和发布，当前实现了查询功能；
+- `friend` 友链管理模块，负责友链管理，具体包括友链查询、申请提交和审批，当前实现了友链查询功能；
+- `login` 登录模块，负责实现登录 API;
+- `profile` 用户资料模块，负责实现用户资料查询 API;
+- `register` 用户注册模块，负责实现用户注册 API;
+- `say` 说说模块，负责说说的创建和查询；
 
-# watch mode
-$ npm run start:dev
+`src/shared` 目录下存放着全部共用模块：
 
-# production mode
-$ npm run start:prod
+```
+src/shared
+├── auth
+├── date-time-helper
+└── user
 ```
 
-## Test
+其中：
 
-```bash
-# unit tests
-$ npm run test
+- `auth` 模块提供身份验证服务，实现 passport 框架下的策略；
+- `date-time-helper` 模块提供日期字符串处理服务；
+- `user` 模块提供用户管理服务；
 
-# e2e tests
-$ npm run test:e2e
+## 模块之间的依赖关系设计
 
-# test coverage
-$ npm run test:cov
-```
+根模块加载各个功能模块，各个功能模块互相之间不依赖，根模块不实现具体的功能，功能模块可以调用共用模块。
 
-## Support
+![架构图](docs/探索子博客后端架构图.png)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+当前架构暂且类似上图所示，并且会在未来不断进行变更和改进以灵活适应不同的开发阶段和业务逻辑。
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
