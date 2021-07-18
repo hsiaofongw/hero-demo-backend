@@ -10,6 +10,7 @@ import { ArticleModule } from './article/article.module';
 import { DateTimeHelperModule } from './shared/date-time-helper/date-time-helper.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SayModule } from './say/say.module';
+import { PingModule } from './ping/ping.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { SayModule } from './say/say.module';
       inject: [ConfigService],
     }),
     SayModule,
+    PingModule,
   ],
 })
 export class AppModule {}
