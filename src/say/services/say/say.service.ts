@@ -43,6 +43,7 @@ export class SayService {
     const totalCounts = await this.sayModel.count().exec();
     const sayDocuments = await this.sayModel
       .find()
+      .sort({ createdAt: -1 })
       .skip(parseInt(offset))
       .limit(parseInt(limit))
       .exec();
