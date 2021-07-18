@@ -43,3 +43,19 @@ export interface IQuerySaysDto {
 
   limit: string;
 }
+
+/** 删除说说需要的参数 */
+export interface IDeleteSayDto {
+  /** 说说的 ID */
+  id: string;
+}
+
+/** 删除说说返回结果 */
+export interface IDeleteResult {
+  /** 删除成功时，值为 1 */
+  ok?: number;
+  n?: number;
+
+  /** 被删除的数量 */
+  deletedCount?: number;
+}

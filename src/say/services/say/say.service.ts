@@ -3,9 +3,10 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { from, Observable } from 'rxjs';
 import { CreateSayDto } from 'src/say/dtos/create-say.dto';
+import { DeleteSayDto } from 'src/say/dtos/delete-say.dto';
 import { QuerySaysDto } from 'src/say/dtos/query-says.dto';
 import { Say, SayDocument } from 'src/say/entities/say.entity';
-import { ISay, ISayQueryResult } from 'src/say/interface';
+import { IDeleteResult, ISay, ISayQueryResult } from 'src/say/interface';
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
@@ -60,6 +61,12 @@ export class SayService {
       result,
       offset: parseInt(offset),
     };
+  }
+
+  /** 删除一条说说 */
+  deleteSayByIdAsync(deleteSayDto: DeleteSayDto): Promise<IDeleteResult> {
+    const sayId = deleteSayDto.id;
+    return this.sayModel.deleteOne({ id: sayId }).exec();
   }
 
   /** 使用分页参数查询说说 */
