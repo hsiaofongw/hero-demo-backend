@@ -30,3 +30,16 @@ export interface ISayQueryResult {
   /** 查询结果，一个说说列表 */
   result: ISay[];
 }
+
+/** 创建说说 Dto */
+export interface ICreateSayDto {
+  /** 说说内容 */
+  content: string;
+}
+
+/** 查询说说需要的（分页）数据 */
+export interface IQuerySaysDto {
+  offset: string;
+
+  limit: string;
+}
