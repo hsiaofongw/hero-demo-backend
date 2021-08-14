@@ -11,6 +11,7 @@ import { DateTimeHelperModule } from './shared/date-time-helper/date-time-helper
 import { MongooseModule } from '@nestjs/mongoose';
 import { SayModule } from './say/say.module';
 import { PingModule } from './ping/ping.module';
+import { ChatroomModule } from './chatroom/chatroom.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { PingModule } from './ping/ping.module';
     }),
     SayModule,
     PingModule,
+    ChatroomModule,
   ],
 })
 export class AppModule {}
