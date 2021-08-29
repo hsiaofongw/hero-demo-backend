@@ -13,11 +13,12 @@ import { SayModule } from './say/say.module';
 import { PingModule } from './ping/ping.module';
 import { ChatroomModule } from './chatroom/chatroom.module';
 import { RssModule } from './rss/rss.module';
+import { PdfModule } from './pdf/pdf.module';
 
 @Module({
   imports: [
     UserModule,
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({ envFilePath: ['.env.secret', '.env'] }),
     AuthModule,
     RegisterModule,
     LoginModule,
@@ -39,6 +40,7 @@ import { RssModule } from './rss/rss.module';
     PingModule,
     ChatroomModule,
     RssModule,
+    PdfModule,
   ],
 })
 export class AppModule {}

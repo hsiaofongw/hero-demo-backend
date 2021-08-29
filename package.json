@@ -30,6 +30,7 @@
     "@nestjs/passport": "^8.0.0",
     "@nestjs/platform-express": "^7.6.15",
     "@nestjs/swagger": "^4.8.1",
+    "ali-oss": "^6.16.0",
     "faker": "^5.5.3",
     "feed": "^4.2.2",
     "mongoose": "^5.13.3",
