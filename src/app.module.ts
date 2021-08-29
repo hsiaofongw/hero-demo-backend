@@ -12,6 +12,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { SayModule } from './say/say.module';
 import { PingModule } from './ping/ping.module';
 import { ChatroomModule } from './chatroom/chatroom.module';
+import { RssModule } from './rss/rss.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { ChatroomModule } from './chatroom/chatroom.module';
     SayModule,
     PingModule,
     ChatroomModule,
+    RssModule,
   ],
 })
 export class AppModule {}
