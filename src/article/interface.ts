@@ -5,6 +5,7 @@ export interface IArticle {
   author?: string;
   description?: string;
   url: string;
+  date?: string;
 }
 
 export interface IArticleQueryResult {
