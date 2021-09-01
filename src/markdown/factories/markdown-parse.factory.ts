@@ -1,9 +1,11 @@
-import { Observable, of } from "rxjs";
-import { MarkdownParseService } from "../services/markdown-parse/markdown-parse.service";
+import { Observable, of } from 'rxjs';
+import { MarkdownParseService } from '../services/markdown-parse/markdown-parse.service';
+import childProcess from 'child_process';
+import path from 'path';
 
 /**
  * 我们希望确保在一个 Application 的整个生命周期中，
- * 最多也就生产一个 MarkdownParseService, 
+ * 最多也就生产一个 MarkdownParseService,
  * 换言之即单例。
  */
 export class MarkdownParseFactory {
@@ -14,10 +16,22 @@ export class MarkdownParseFactory {
       return this.instance;
     }
 
-    console.log({dirname:__dirname});
+    const extSubModulePath = path.join(
+      __dirname,
+      '../external-incompatible-modules/markdown-process/dist/main.bundle.js',
+    );
+
+    const child = childProcess.fork(extSubModulePath);
+
     function MarkdownParseService() {
       function parse(markdownText: string): Observable<string> {
-        return of('hello');
+        return new Observable((obs) => {
+          child.send(markdownText);
+          child.on('message', (parsedAstJSON: string) => {
+            obs.next(parsedAstJSON);
+            obs.complete();
+          });
+        });
       }
       this.parse = parse;
     }
