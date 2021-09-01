@@ -38,9 +38,11 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
+    "remark-parse": "^10.0.0",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.6",
     "swagger-ui-express": "^4.1.6",
+    "unified": "^10.1.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

@@ -14,6 +14,7 @@ import { PingModule } from './ping/ping.module';
 import { ChatroomModule } from './chatroom/chatroom.module';
 import { RssModule } from './rss/rss.module';
 import { PdfModule } from './pdf/pdf.module';
+import { MarkdownModule } from './markdown/markdown.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { PdfModule } from './pdf/pdf.module';
     ChatroomModule,
     RssModule,
     PdfModule,
+    MarkdownModule,
   ],
 })
 export class AppModule {}

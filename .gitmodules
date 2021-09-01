@@ -1,0 +1,3 @@
+[submodule "src/markdown/external-incompatible-modules/markdown-process"]
+	path = src/markdown/external-incompatible-modules/markdown-process
+	url = github:hsiaofongw/markdown-process.git
