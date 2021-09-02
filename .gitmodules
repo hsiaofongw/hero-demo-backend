@@ -1,3 +1,6 @@
 [submodule "src/markdown/external-incompatible-modules/markdown-process"]
 	path = src/markdown/external-incompatible-modules/markdown-process
 	url = github:hsiaofongw/markdown-process.git
+[submodule "src/markdown/external-incompatible-modules/blog-content-center"]
+	path = src/markdown/external-incompatible-modules/blog-content-center
+	url = github:idea-ignites/blog-content-center.git
