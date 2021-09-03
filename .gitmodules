@@ -4,3 +4,6 @@
 [submodule "src/markdown/external-incompatible-modules/blog-content-center"]
 	path = src/markdown/external-incompatible-modules/blog-content-center
 	url = github:idea-ignites/blog-content-center.git
+[submodule "src/content/external-submodules/blog-content-center"]
+	path = src/content/external-submodules/blog-content-center
+	url = github:idea-ignites/blog-content-center.git
