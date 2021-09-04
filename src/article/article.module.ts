@@ -5,6 +5,7 @@ import { ArticlesController } from './controllers/articles/articles.controller';
 import { ArticleService } from './services/article/article.service';
 import { LocalArticleService } from './services/local-article/local-article.service';
 
+/** 对外提供文章列表查询服务 */
 @Module({
   providers: [
     { provide: ArticleService, useClass: LocalArticleService },

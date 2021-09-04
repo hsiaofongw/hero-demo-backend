@@ -13,8 +13,8 @@ import { SayModule } from './say/say.module';
 import { PingModule } from './ping/ping.module';
 import { ChatroomModule } from './chatroom/chatroom.module';
 import { RssModule } from './rss/rss.module';
-import { PdfModule } from './pdf/pdf.module';
-import { MarkdownModule } from './markdown/markdown.module';
+import { MarkdownModule } from './shared/markdown/markdown.module';
+import { ContentProviderModule } from './shared/content-provider/content-provider.module';
 
 @Module({
   imports: [
@@ -41,8 +41,8 @@ import { MarkdownModule } from './markdown/markdown.module';
     PingModule,
     ChatroomModule,
     RssModule,
-    PdfModule,
     MarkdownModule,
+    ContentProviderModule,
   ],
 })
 export class AppModule {}

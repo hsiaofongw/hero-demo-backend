@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { Observable, of } from 'rxjs';
 import { IArticleQueryResult } from 'src/article/interface';
 import { ArticleService } from '../article/article.service';
-import { articles } from '../../data';
 
 @Injectable()
 export class LocalArticleService implements ArticleService {
