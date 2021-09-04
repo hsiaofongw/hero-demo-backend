@@ -13,7 +13,6 @@ import { SayModule } from './say/say.module';
 import { PingModule } from './ping/ping.module';
 import { ChatroomModule } from './chatroom/chatroom.module';
 import { RssModule } from './rss/rss.module';
-import { MarkdownModule } from './shared/markdown/markdown.module';
 import { ContentProviderModule } from './shared/content-provider/content-provider.module';
 
 @Module({
@@ -41,7 +40,6 @@ import { ContentProviderModule } from './shared/content-provider/content-provide
     PingModule,
     ChatroomModule,
     RssModule,
-    MarkdownModule,
     ContentProviderModule,
   ],
 })

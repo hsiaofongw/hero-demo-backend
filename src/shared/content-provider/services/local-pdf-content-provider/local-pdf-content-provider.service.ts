@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { CacheStaleWhileRevalidate } from '../../decoractors/cache';
+import { CacheStaleWhileRevalidatePromise } from '../../decoractors/cache';
 import { readFile } from 'fs/promises';
 import path from 'path';
 
 @Injectable()
 export class LocalPdfContentProviderService {
-  @CacheStaleWhileRevalidate({ namespace: 'content::pdf' })
+  @CacheStaleWhileRevalidatePromise({ namespace: 'content::pdf' })
   public async pdf(fileName: string): Promise<Buffer> {
     const fullPDFFileName = path.resolve(
       __dirname,

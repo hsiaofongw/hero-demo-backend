@@ -1,8 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { IArticleQueryResult } from 'src/article/interface';
+import { ArticleQueryParam } from 'src/shared/content-provider/interfaces';
+import { ArticleQueryResult } from '../../interface';
 
 @Injectable()
 export abstract class ArticleService {
-  abstract getAllArticles(): Observable<IArticleQueryResult>;
+  abstract getArticles(
+    param: ArticleQueryParam,
+  ): Observable<ArticleQueryResult>;
 }

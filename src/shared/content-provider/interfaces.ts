@@ -12,3 +12,11 @@ export type QueryParam<T> = {
 };
 
 export type ArticleQueryParam = QueryParam<IArticle>;
+
+export type QueryResult<T> = {
+  data: T[];
+  total: number;
+  offset: number;
+};
+
+export type ArticleQueryResult = QueryResult<IArticle>;

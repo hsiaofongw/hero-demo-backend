@@ -1,11 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import { Observable, of } from 'rxjs';
-import { IArticleQueryResult } from 'src/article/interface';
+import { Observable } from 'rxjs';
+import { ArticleQueryParam, ArticleQueryResult } from 'src/article/interface';
+import { LocalArticlesProviderService } from 'src/shared/content-provider/services/local-articles-provider/local-articles-provider.service';
 import { ArticleService } from '../article/article.service';
 
 @Injectable()
 export class LocalArticleService implements ArticleService {
-  getAllArticles(): Observable<IArticleQueryResult> {
-    return of({ totalCounts: articles.length, offset: 0, result: articles });
+  constructor(private articlesProvider: LocalArticlesProviderService) {}
+  getArticles(param: ArticleQueryParam): Observable<ArticleQueryResult> {
+    return this.articlesProvider.getArticles(param);
   }
 }
