@@ -12,8 +12,7 @@ async function bootstrap() {
 
   const docConfig = new DocumentBuilder()
     .addBearerAuth()
-    .setTitle('Hero API')
-    .setDescription('The hero API description')
+    .setTitle('探索子博客数据接口')
     .setVersion('1.0')
     .build();
 
