@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { FriendModule } from 'src/friend/friend.module';
+import { ContentProviderModule } from 'src/shared/content-provider/content-provider.module';
 import { RssController } from './controllers/rss/rss.controller';
 import { ArticleRssService } from './services/article-rss/article-rss.service';
 
 @Module({
   providers: [ArticleRssService],
-  imports: [FriendModule],
+  imports: [ContentProviderModule],
   controllers: [RssController],
 })
 export class RssModule {}

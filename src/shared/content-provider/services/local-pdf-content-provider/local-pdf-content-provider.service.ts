@@ -8,7 +8,7 @@ export class LocalPdfContentProviderService {
   @CacheStaleWhileRevalidatePromise({ namespace: 'content::pdf' })
   public async pdf(fileName: string): Promise<Buffer> {
     const fullPDFFileName = path.resolve(
-      __dirname,
+      __filename,
       'src/shared/content-provider/external/blog-content-center/pdfs',
       fileName,
     );

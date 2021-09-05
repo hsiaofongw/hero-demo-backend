@@ -1,18 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { Observable, of } from 'rxjs';
-import { friends } from 'src/friend/data';
-import { IFriendQueryResult } from 'src/friend/interface';
+import { Observable } from 'rxjs';
 import { FriendService } from '../friend/friend.service';
+import {} from '../../interface';
+import { ICardQueryParam, ICardQueryResult } from 'src/article/interface';
+import { LocalCardsProviderService } from 'src/shared/content-provider/services/local-cards-provider/local-cards-provider.service';
 
 @Injectable()
 export class LocalFriendService implements FriendService {
-  getAllFriends(): Observable<IFriendQueryResult> {
-    return of({
-      result: friends,
-      totalCounts: friends.length,
-      statusCode: 200,
-      statusText: 'OK',
-      offset: 0,
-    });
+  constructor(private cardsProvider: LocalCardsProviderService) {}
+
+  getCards(param: ICardQueryParam): Observable<ICardQueryResult> {
+    return this.cardsProvider.getCards(param);
   }
 }
